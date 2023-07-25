@@ -27,4 +27,4 @@ Using the python package manager, run `pip install -i https://test.pypi.org/simp
 
 The CLI takes the SBOM and generates a CSV with 5 columns,
 `bomref`, `name`, `hash`, `mimetime`, and `mode`.
-Each row contains an entry from the `components` array in the SBOM file with the corresponding information.
+Each row contains an entry from the `components` array in the SBOM file with the corresponding information. If a component does not contain an entry for any of these 5 categories, it will be marked as None
