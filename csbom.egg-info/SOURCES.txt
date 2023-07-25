@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+csbom.py
+setup.py
+app/__init__.py
+app/__main__.py
+app/application.py
+csbom.egg-info/PKG-INFO
+csbom.egg-info/SOURCES.txt
+csbom.egg-info/dependency_links.txt
+csbom.egg-info/entry_points.txt
+csbom.egg-info/requires.txt
+csbom.egg-info/top_level.txt
