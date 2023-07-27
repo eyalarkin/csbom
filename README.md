@@ -29,9 +29,9 @@ dep2table: Given an SBOM as the argument, outputs a table of dependencies
 file2table: Given an SBOM as the argument, outputs a table of components of type file
 
 **file2table**
-The CLI takes the SBOM and generates a CSV with 5 columns,
+command takes the SBOM and generates a CSV with 5 columns,
 `bomref`, `name`, `hash`, `mimetime`, and `mode`.
 Each row contains an entry from the `components` array in the SBOM file with the corresponding information. If a component does not contain an entry for any of these 5 categories, it will be marked as None
 
 **dep2table**
-The CLI creates a CSV table of depender components mapped to dependee components, with information of `name`, `type`, and `purl` for each component.
+command creates a CSV table of depender components mapped to dependee components, with information of `name`, `type`, and `purl` for each component.
