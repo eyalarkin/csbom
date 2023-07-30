@@ -5,7 +5,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name = 'csbom',
-    version = '0.0.2',
+    version = '0.0.4',
     author = 'Eyal Arkin',
     author_email = 'eyal@scribesecurity.com',
     license = 'Apache License, Version 2.0',
@@ -21,6 +21,6 @@ setup(
     ],
     entry_points = '''
         [console_scripts]
-        csbom=csbom:cli
+        csbom=csbom:csbom
     '''
 )
