@@ -22,11 +22,13 @@ Using the python package manager, run `pip install -i https://test.pypi.org/simp
 
 **General Options**:
 --help: display help information
--o (--output): Choose output filename (default `dep/file-analysis.csv`, depending on command)
+-o (--output): Choose output filename (default `dep/file/commit-analysis.csv`, depending on command)
 
 **Commands**:
-dep2table: Given an SBOM as the argument, outputs a table of dependencies
-file2table: Given an SBOM as the argument, outputs a table of components of type file
+dep2table: Given an SBOM generated with the '--components files' flag, output a table of important info,
+file2table: Given an SBOM as the argument, outputs a table of components of type file,
+git2table: Given an SBOM generated from a Git repo, outputs a table with all commit information,
+version: displays current version
 
 **file2table**
 command takes the SBOM and generates a CSV with 5 columns,
@@ -35,3 +37,9 @@ Each row contains an entry from the `components` array in the SBOM file with the
 
 **dep2table**
 command creates a CSV table of depender components mapped to dependee components, with information of `name`, `type`, and `purl` for each component.
+
+**git2table**
+command creates a CSV table of git commits with 6 columns, `bomref`, `type` (which should always be commit), `name`, `commit-author`, `commit-message`, and `commit-timestamp`, for each commit in the SBOM.
+
+**version**
+displays the current version information
