@@ -68,27 +68,27 @@ The tool can still be installed and run normally without a virtual environment, 
 
 `csbom CMD [OPTIONS] ARG`
 
-**General Options**:
---help: display help information
--o (--output): Choose output filename (default `dep/file/commit-analysis.csv`, depending on command)
--a (--append-to):
+**General Options**:  \
+--help: display help information  \
+-o (--output): Choose output filename (default `dep/file/commit-analysis.csv`, depending on command)  \
+-a (--append-to):  Optional, if present, csbom will append the output to the already existing csv specified  \
 
-**Commands**:
+**Commands**:  \
 dep2table: Given an SBOM generated with the '--components files' flag, output a table of important info,
 file2table: Given an SBOM as the argument, outputs a table of components of type file,
-git2table: Given an SBOM generated from a Git repo, outputs a table with all commit information,
+git2table: Given an SBOM generated from a Git repo (with --components commits), outputs a table with all commit information,
 version: displays current version
 
-**file2table**
-command takes the SBOM and generates a CSV with 5 columns,
-`bomref`, `name`, `hash`, `mimetime`, and `mode`.
+**file2table**  \
+This command takes the SBOM and generates a CSV with 5 columns,
+`bomref`, `name`, `hash`, `mimetime`, `mode`, and `last_commit`
 Each row contains an entry from the `components` array in the SBOM file with the corresponding information. If a component does not contain an entry for any of these 5 categories, it will be marked as None
 
-**dep2table**
-command creates a CSV table of depender components mapped to dependee components, with information of `name`, `type`, and `purl` for each component.
+**dep2table**  \
+This command creates a CSV table of depender components mapped to dependee components, with information of `name`, `type`, `purl`, `hashes`, and `group` for each component.
 
-**git2table**
-command creates a CSV table of git commits with 6 columns, `bomref`, `type` (which should always be commit), `name`, `commit-author`, `commit-message`, and `commit-timestamp`, for each commit in the SBOM.
+**git2table**  \
+This command creates a CSV table of git commits with 6 columns, `bomref`, `type` (which should always be commit), `name`, `commit-author`, `commit-message`, and `commit-timestamp`, for each commit in the SBOM.
 
 **version**
 displays the current version information
