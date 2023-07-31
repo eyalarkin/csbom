@@ -3,7 +3,7 @@ import csv
 
 # Internal function
 # PARAMS: `component` - JSON object as dict, individual entry in `components`
-#                       array in sbom output file
+#                       array in SBOM output file
 # RETURNS: tuple of 5 strings, data to be written to single row in CSV
 def __get_data(component):
     # For each category, return either its value or None if it is nonexistent
@@ -57,6 +57,11 @@ def __get_dep_data(bomref, data):
     # finally, if nothing is found, return None as strings
     return 'None', 'None', 'None'
 
+# Internal function
+# PARAMS: `component` - JSON object as dict, individual entry in `components`
+#                       array in SBOM output file
+# RETURNS: tuple of (bomref, name, author, message, timestamp) about an
+#          indivdual entry in `components`
 def __get_git_data(component):
     bomref = component['bom-ref']
     name = component['name']
@@ -73,6 +78,9 @@ def __get_git_data(component):
 
     return bomref, name, author, message, timestamp
 
+# Internal function
+# PARAMS: `sbom` - string, path to SBOM file
+# RETURNS: boolean, whether SBOM file is correctly formatted as `CycloneDX`
 def __format(sbom):
     f = open(sbom)
 
@@ -149,18 +157,34 @@ def parse_dependencies(sbom, write_file):
     # closing file
     f.close()
 
+# PARAMS: `sbom` - string, path to SBOM file
+#         `write_file` - string, path to desired output file (csv format)
+# RETURNS: void
 def parse_git_data(sbom, write_file):
+    # Open and load JSON data
     f = open(sbom)
     data = json.load(f)
 
+    # Create file to write to
     with open(write_file, 'w', newline='') as csv_file:
+        # Initialize CSV writer object
         csv_writer = csv.writer(csv_file)
+
+        # Write header row
         csv_writer.writerow(['bomref', 'type', 'name', 'commit-author', 'commit-message', 'commit-timestamp'])
 
+        # Iterate through every component in the SBOM
         for component in data['components']:
+            # Save the type
             type = component['type']
+
+            # If it's a commit, write a row of the following information
             if type == 'commit':
+                # Unpack commit info
                 bomref, name, author, message, timestamp = __get_git_data(component)
+
+                # Write commit info to file
                 csv_writer.writerow([bomref, name, type, author, message, timestamp])
 
+    # Close SBOM
     f.close()
