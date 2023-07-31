@@ -5,12 +5,12 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
     requirements = fh.read()
 setup(
     name = 'csbom',
-    version = '0.0.4',
+    version = '0.0.6',
     author = 'Eyal Arkin',
     author_email = 'eyal@scribesecurity.com',
     license = 'Apache License, Version 2.0',
     description = 'cli tool for analyzing sbom files',
-   #  url = '<github url where the tool code will remain>',
+    url = 'https://github.com/eyalarkin/csbom/tree/main',
     py_modules = ['csbom', 'app'],
     packages = find_packages(),
     install_requires = [requirements],

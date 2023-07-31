@@ -1,7 +1,8 @@
 Metadata-Version: 2.1
 Name: csbom
-Version: 0.0.4
+Version: 0.0.6
 Summary: cli tool for analyzing sbom files
+Home-page: https://github.com/eyalarkin/csbom/tree/main
 Author: Eyal Arkin
 Author-email: eyal@scribesecurity.com
 License: Apache License, Version 2.0

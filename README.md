@@ -14,33 +14,52 @@ To exit the environment, run `deactivate` and your terminal should go back to no
 
 While in the venv, do this to install (this way, the tool will only be installed in the virtual environment):
 
-Using the python package manager, run `pip install -i https://test.pypi.org/simple/ csbom==0.0.4`
+Using the python package manager, run `pip install -i https://test.pypi.org/simple/ csbom==0.0.6`
 
 Example of installing and running csbom in a virtual environment:
 ```shell
-$ virtualenv venv #create the venv
+# Create a virtual environment named `venv`
+$ virtualenv venv
 created virtual environment CPython3.10.10.final.0-64 in 159ms
   creator CPython3Posix(dest=<dest_path>, clear=False, no_vcs_ignore=False, global=False)
   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=<app_dir> Application Support/virtualenv)
     added seed packages: pip==23.2.1, setuptools==68.0.0, wheel==0.41.0
   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
 
-$ source venv/bin/activate #enter the venv
+# Activate the virtual environment
+$ source venv/bin/activate
 
-(venv) $ pip install -i https://test.pypi.org/simple/ csbom==0.0.4 #installing csbom
-
+# Install csbom tool
+(venv) $ pip install -i https://test.pypi.org/simple/ csbom==0.0.6
 Looking in indexes: https://test.pypi.org/simple/
-Collecting csbom==0.0.4
-  Obtaining dependency information for csbom==0.0.4 from https://test-files.pythonhosted.org/packages/24/ed/c46dd8429296ef7a4cb41125f6a1b44f942b4acb18097fb5f61f97fc1170/csbom-0.0.4-py3-none-any.whl.metadata
+Collecting csbom==0.0.6
+  Obtaining dependency information for csbom==0.0.6 from https://test-files.pythonhosted.org/packages/24/ed/c46dd8429296ef7a4cb41125f6a1b44f942b4acb18097fb5f61f97fc1170/csbom-0.0.4-py3-none-any.whl.metadata
   Downloading https://test-files.pythonhosted.org/packages/24/ed/c46dd8429296ef7a4cb41125f6a1b44f942b4acb18097fb5f61f97fc1170/csbom-0.0.4-py3-none-any.whl.metadata (360 bytes)
-Collecting click>=7.1.2 (from csbom==0.0.4)
+Collecting click>=7.1.2 (from csbom==0.0.6)
   Obtaining dependency information for click>=7.1.2 from https://test-files.pythonhosted.org/packages/1a/70/e63223f8116931d365993d4a6b7ef653a4d920b41d03de7c59499962821f/click-8.1.6-py3-none-any.whl.metadata
   Using cached https://test-files.pythonhosted.org/packages/1a/70/e63223f8116931d365993d4a6b7ef653a4d920b41d03de7c59499962821f/click-8.1.6-py3-none-any.whl.metadata (3.0 kB)
 Downloading https://test-files.pythonhosted.org/packages/24/ed/c46dd8429296ef7a4cb41125f6a1b44f942b4acb18097fb5f61f97fc1170/csbom-0.0.4-py3-none-any.whl (7.9 kB)
 Using cached https://test-files.pythonhosted.org/packages/1a/70/e63223f8116931d365993d4a6b7ef653a4d920b41d03de7c59499962821f/click-8.1.6-py3-none-any.whl (97 kB)
 Installing collected packages: click, csbom
-Successfully installed click-8.1.6 csbom-0.0.4
+Successfully installed click-8.1.6 csbom-0.0.6
+
+# Now, you can run csbom in your virtual environment!
+(venv) $ which csbom
+.../venv/bin/csbom
+
+# Using the csbom tool
+(venv) $ csbom dep2table bom.json -o analysis.csv
+Dependency table successfully generated at `analysis.csv`!
+
+# To exit the virtual environment
+(venv) $ deactivate
+
+# Notice that the (venv) disappears after calling deactivate
+$ exit
+
 ```
+
+The tool can still be installed and run normally without a virtual environment, this is just an example for how to install it exclusively in a virtual environment.
 
 ### Usage & Explanations
 
