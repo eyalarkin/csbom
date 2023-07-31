@@ -71,6 +71,7 @@ The tool can still be installed and run normally without a virtual environment, 
 **General Options**:
 --help: display help information
 -o (--output): Choose output filename (default `dep/file/commit-analysis.csv`, depending on command)
+-a (--append-to):
 
 **Commands**:
 dep2table: Given an SBOM generated with the '--components files' flag, output a table of important info,
