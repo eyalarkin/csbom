@@ -14,7 +14,10 @@ To exit the environment, run `deactivate` and your terminal should go back to no
 
 While in the venv, do this to install (this way, the tool will only be installed in the virtual environment):
 
-Using the python package manager, run `pip install -i https://test.pypi.org/simple/ csbom==0.0.6`
+Using the python package manager, run
+```
+pip install -i https://test.pypi.org/simple/ csbom==0.0.6
+```
 
 Example of installing and running csbom in a virtual environment:
 ```shell
