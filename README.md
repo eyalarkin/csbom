@@ -74,9 +74,9 @@ The tool can still be installed and run normally without a virtual environment, 
 -a (--append-to):  Optional, if present, csbom will append the output to the already existing csv specified  \
 
 **Commands**:  \
-dep2table: Given an SBOM generated with the '--components files' flag, output a table of important info,
-file2table: Given an SBOM as the argument, outputs a table of components of type file,
-git2table: Given an SBOM generated from a Git repo (with --components commits), outputs a table with all commit information,
+dep2table: Given an SBOM generated with the '--components files' flag, output a table of important info,  \
+file2table: Given an SBOM as the argument, outputs a table of components of type file,  \
+git2table: Given an SBOM generated from a Git repo (with --components commits), outputs a table with all commit information,  \
 version: displays current version
 
 **file2table**  \
