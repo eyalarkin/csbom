@@ -228,10 +228,9 @@ def parse_git_data(sbom, write_file, append):
         # Iterate through every component in the SBOM
         for component in data['components']:
             # Save the type
-            type = component['type']
 
             # If it's a commit, write a row of the following information
-            if type == 'commit':
+            if (type := component['type']) == 'commit':
                 # Unpack commit info
                 bomref, name, author, message, timestamp = __get_git_data(component)
 
